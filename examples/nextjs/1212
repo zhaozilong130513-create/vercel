@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venice Atelier | 高端私人定制</title>
+  <meta name="description" content="Venice Atelier — 温哥华Robson Street高端私人定制工作室。婚礼礼服、晚礼服、日常高定、男士定制与成衣改良。预约一对一量身与风格咨询。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0b0c;
+      --ink: #efefef;
+      --muted: #c9c9c9;
+      --brand: #c2a07a; /* champagne gold */
+      --brand-2: #8c6b4f;
+      --card: rgba(15,15,16,.65);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--ink); background:var(--bg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.6; letter-spacing:.2px;
+      background-image:
+        linear-gradient(rgba(11,11,12,.35), rgba(11,11,12,.85)),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2100&auto=format&fit=crop');
+      background-size:cover; background-attachment:fixed; background-position:center; 
+    }
+    a{color:var(--ink); text-decoration:none}
+    .container{width:min(1200px, 92vw); margin:0 auto}
+
+    /* Top Bar */
+    .topbar{position:sticky; top:0; backdrop-filter: blur(12px); background:rgba(10,10,12,.35); border-bottom:1px solid rgba(255,255,255,.08); z-index:20}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{
+      width:40px; height:40px; border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #e6d6bf, #a98a67 60%, #5f4733 100%);
+      box-shadow: inset 0 0 10px rgba(255,255,255,.25), 0 8px 18px rgba(0,0,0,.35);
+    }
+    .brand h1{font-family: 'Playfair Display', serif; font-weight:700; font-size:20px; letter-spacing:3px; margin:0}
+    .menu{display:flex; gap:20px; font-size:14px}
+    .cta{display:flex; gap:10px}
+    .btn{padding:10px 16px; border-radius:999px; border:1px solid rgba(255,255,255,.2); background:transparent; color:var(--ink); cursor:pointer}
+    .btn--gold{background:linear-gradient(135deg, var(--brand), var(--brand-2)); border:0; color:#111; font-weight:600}
+
+    /* Hero */
+    .hero{padding:12vh 0 16vh; position:relative}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:end}
+    .eyebrow{color:var(--brand); letter-spacing:3px; text-transform:uppercase; font-size:12px}
+    .headline{font-family:'Playfair Display',serif; font-size: clamp(34px, 6vw, 72px); line-height:1.06; margin:.2em 0 .4em}
+    .sub{color:var(--muted); max-width:62ch}
+    .hero-card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    .hero-card h3{margin:0 0 6px; font-family:'Playfair Display',serif}
+    .kv{height:56vh; border-radius:var(--radius); overflow:hidden; position:relative; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.1)}
+    .kv img{width:100%; height:100%; object-fit:cover; filter:contrast(1.05) saturate(1.05)}
+    .kv:after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent, rgba(11,11,12,.65) 70%) }
+
+    /* Sections */
+    section{padding:90px 0}
+    .section-title{font-family:'Playfair Display',serif; font-size: clamp(26px, 4.2vw, 46px); margin:0 0 10px}
+    .section-sub{color:var(--muted); max-width:70ch; margin:0 0 30px}
+
+    /* About */
+    .about{display:grid; grid-template-columns:1.1fr .9fr; gap:38px; align-items:center}
+    .about .card{background:var(--card); padding:28px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow)}
+    .about-figure{position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+    .about-figure img{display:block; width:100%; height:100%; object-fit:cover}
+    .tag{display:inline-block; padding:6px 10px; border:1px solid rgba(255,255,255,.18); border-radius:999px; font-size:12px; color:var(--muted); margin-right:8px}
+
+    /* Services */
+    .grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:18px}
+    .service{position:relative; border-radius:var(--radius); overflow:hidden; min-height:260px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.08)}
+    .service img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.9)}
+    .service .label{position:absolute; inset:auto 0 0 0; padding:16px; background:linear-gradient(180deg, transparent, rgba(0,0,0,.75)); font-weight:600}
+
+    /* Experience */
+    .experience{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+    .exp-card{background:var(--card); padding:24px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow)}
+    .exp-card h4{font-family:'Playfair Display',serif; margin:0 0 6px}
+
+    /* Gallery */
+    .masonry{columns:3; gap:14px}
+    .masonry img{width:100%; border-radius:14px; margin:0 0 14px; display:block; box-shadow:var(--shadow)}
+
+    /* Contact */
+    .contact-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:24px}
+    form{background:var(--card); padding:24px; border-radius:var(--radius); border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow)}
+    label{display:block; font-size:14px; color:var(--muted); margin:10px 0 6px}
+    input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.04); color:var(--ink)}
+    textarea{min-height:120px; resize:vertical}
+    .map{min-height:340px; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.08)}
+
+    /* Footer */
+    footer{padding:40px 0 70px; color:var(--muted)}
+    .legal{display:flex; gap:12px; flex-wrap:wrap; font-size:12px}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero-grid, .about, .contact-wrap, .experience{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .masonry{columns:2}
+    }
+    @media (max-width: 640px){
+      .menu{display:none}
+      .grid{grid-template-columns:1fr}
+      .masonry{columns:1}
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>VENICE ATELIER</h1>
+      </div>
+      <nav class="menu" aria-label="Primary">
+        <a href="#about">关于我</a>
+        <a href="#services">定制服务</a>
+        <a href="#experience">职业感受</a>
+        <a href="#gallery">作品一览</a>
+        <a href="#contact">联系与预约</a>
+      </nav>
+      <div class="cta">
+        <a class="btn" href="mailto:venicelimyuxin@gmail.com">电子邮件</a>
+        <a class="btn btn--gold" href="#contact">预约量体</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">BESPOKE • COUTURE • TAILORING</div>
+        <h2 class="headline">为少数人的衣橱，打造一生的高定信任</h2>
+        <p class="sub">坐落于温哥华繁华的 Robson Street，我与团队以高级工艺与现代廓形，呈现婚礼礼服、晚礼服与日常高定。每一次量体，都是一次关于品味、比例与生活方式的对话。</p>
+        <div style="margin-top:22px; display:flex; gap:12px; flex-wrap:wrap">
+          <a class="btn btn--gold" href="#services">探索服务</a>
+          <a class="btn" href="#gallery">浏览作品</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>本月主理系列 · Atelier Evening</h3>
+        <p style="margin:0 0 10px; color:var(--muted)">光影之间的丝绸与手工珠绣，专为夜幕时刻设计。</p>
+        <div class="kv" aria-label="高定礼服主视觉">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=2000&auto=format&fit=crop" alt="丝绸晚礼服与手工珠绣细节" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container about">
+      <figure class="about-figure" aria-label="工作室与工艺">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=2000&auto=format&fit=crop" alt="手工打版与高定面料台面"/>
+      </figure>
+      <div class="card">
+        <div class="eyebrow">Founder & Creative Director</div>
+        <h3 class="section-title">Venice · 从乌克兰到温哥华的高定旅程</h3>
+        <p class="section-sub">我在乌克兰长大，35 岁的我已经与面料相伴近半生。六年前来到加拿大，创立 Venice Atelier——一个专注私人定制的独立工作室。我相信，真正的奢华是被理解。</p>
+        <div style="margin:14px 0 10px">
+          <span class="tag">量身廓形</span>
+          <span class="tag">手工工艺</span>
+          <span class="tag">可持续面料</span>
+          <span class="tag">限量预约</span>
+        </div>
+        <p>我偏爱纯净线条与精准比例。无论是婚礼前的第一套礼服，还是每天都想穿的那件外套，我更在意衣服如何与人的生活同行。客户常说，我的试衣像一次温柔的风格引导——我们一起寻找属于你的质感边界。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h3 class="section-title">定制服务</h3>
+      <p class="section-sub">所有系列皆以私人预约开启：一对一沟通、量体与试衣；每件作品拥有独立版型与工艺日志。</p>
+      <div class="grid">
+        <article class="service">
+          <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1800&auto=format&fit=crop" alt="打版与立裁"/>
+          <div class="label">高级立裁与版型设计</div>
+        </article>
+        <article class="service">
+          <img src="https://images.unsplash.com/photo-1520974735194-54f025f5406c?q=80&w=1800&auto=format&fit=crop" alt="婚纱与礼服"/>
+          <div class="label">婚礼/晚礼服定制</div>
+        </article>
+        <article class="service">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1800&auto=format&fit=crop" alt="商务套装"/>
+          <div class="label">女士/男士成衣级高定</div>
+        </article>
+        <article class="service">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1800&auto=format&fit=crop" alt="面料档案"/>
+          <div class="label">面料甄选与可持续系列</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience / Voice -->
+  <section id="experience">
+    <div class="container">
+      <h3 class="section-title">职业感受</h3>
+      <p class="section-sub">高定不是昂贵，而是诚意与耐心。我想把“合身”这件事，做得既科学又浪漫。</p>
+      <div class="experience">
+        <div class="exp-card">
+          <h4>关于比例</h4>
+          <p>我习惯先看姿态，再谈风格。颈肩线、腰胯比与步态，决定了衣服的语言。合适的线条，会让你自然地站得更直、走得更稳。</p>
+        </div>
+        <div class="exp-card">
+          <h4>关于面料</h4>
+          <p>面料会说话。羊绒的呼吸、真丝的光泽、环保混纺的韧性——当你触摸它们，才知道为什么“少而精”是值得的。</p>
+        </div>
+        <div class="exp-card">
+          <h4>关于仪式感</h4>
+          <p>预约、试衣、定稿与交付，每一步都讲究分寸。穿上它的那一刻，你会明白：优雅从不是装出来的，是被照顾、被理解后的松弛与底气。</p>
+        </div>
+        <div class="exp-card">
+          <h4>关于持久</h4>
+          <p>我愿为一件经典花上很久，因为真正的好衣服，是可以被穿很多年，甚至被女儿或儿子再次爱上的。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <h3 class="section-title">作品一览</h3>
+      <p class="section-sub">部分样片仅作风格展示，实际作品以来店私洽为准。</p>
+      <div class="masonry" aria-label="作品图片瀑布流">
+        <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?q=80&w=1200&auto=format&fit=crop" alt="珠绣晚礼服裙摆细节"/>
+        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200&auto=format&fit=crop" alt="外套纹理与排扣设计"/>
+        <img src="https://images.unsplash.com/photo-1490111718993-d98654ce6cf7?q=80&w=1200&auto=format&fit=crop" alt="丝绸礼服廓形背影"/>
+        <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=1200&auto=format&fit=crop" alt="男士西装面料选择"/>
+        <img src="https://images.unsplash.com/photo-1516642499105-492ff3ac521b?q=80&w=1200&auto=format&fit=crop" alt="立裁模特上的纽襻细节"/>
+        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91e43?q=80&w=1200&auto=format&fit=crop" alt="礼服裙身褶裥艺术"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container contact-wrap">
+      <form onsubmit="event.preventDefault(); alert('感谢预约，我会尽快联系你确认来店时间。');">
+        <h3 class="section-title" style="margin-bottom:4px">联系与预约</h3>
+        <p class="section-sub" style="margin-bottom:18px">工作室尊重私密体验与从容节奏，建议提前 7–14 天预约。</p>
+        <label for="name">姓名</label>
+        <input id="name" name="name" placeholder="你的称呼" required>
+        <label for="email">邮箱</label>
+        <input id="email" type="email" name="email" placeholder="name@example.com" required>
+        <label for="phone">电话</label>
+        <input id="phone" name="phone" placeholder="+1 000 000 0000">
+        <label for="msg">需求与时间</label>
+        <textarea id="msg" name="msg" placeholder="简单描述你的场合、喜好、预计的时间线…"></textarea>
+        <div style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap">
+          <button class="btn btn--gold" type="submit">提交预约</button>
+          <a class="btn" href="mailto:venicelimyuxin@gmail.com">邮件联系</a>
+          <a class="btn" href="tel:+16265143395">电话咨询</a>
+        </div>
+        <div style="margin-top:16px; font-size:14px; color:var(--muted)">
+          也可直接添加：<a href="mailto:venicelimyuxin@gmail.com">venicelimyuxin@gmail.com</a> · <a href="tel:+16265143395">+1 626 514 3395</a>
+        </div>
+      </form>
+      <div>
+        <h3 class="section-title" style="margin-bottom:10px">地址</h3>
+        <p class="section-sub" style="margin-bottom:14px">1099 Robson St, Vancouver, BC V6E 1B5</p>
+        <div class="map" aria-label="地图">
+          <iframe title="Venice Atelier on Robson St" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen 
+            src="https://www.google.com/maps?q=1099%20Robson%20St,%20Vancouver,%20BC%20V6E%201B5&output=embed"></iframe>
+        </div>
+        <div style="margin-top:18px">
+          <p style="margin:0; color:var(--muted); font-size:14px">营业时间（预约制）：Mon–Sat 11:00–19:00 · Sun 12:00–17:00</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
+        <div>
+          <strong style="font-family:'Playfair Display',serif; letter-spacing:2px">VENICE ATELIER</strong>
+          <div class="legal" style="margin-top:8px">
+            <span>© <span id="y"></span> Venice Atelier</span>
+            <span>All Rights Reserved</span>
+            <span>Privacy</span>
+            <span>Terms</span>
+          </div>
+        </div>
+        <div style="display:flex; gap:10px">
+          <a class="btn" href="#about">关于我</a>
+          <a class="btn" href="#services">服务</a>
+          <a class="btn btn--gold" href="#contact">立即预约</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
